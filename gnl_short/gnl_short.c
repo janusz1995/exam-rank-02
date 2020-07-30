@@ -18,8 +18,6 @@
 int     ft_strlen(char *str)
 {
     int count = 0;
-    if (!str)
-        return (count);
     while (str[count] != '\0')
         count++;
     return (count);
@@ -31,13 +29,10 @@ char    *strjoin(char *str, char c)
     char *list;
     count = 0;
     list = (char*)malloc((ft_strlen(str) + 2) * sizeof(char));
-    if (str)
+    while (str[count] != '\0')
     {
-        while (str[count] != '\0')
-        {
-            list[count] = str[count];
-            count++;
-        }
+        list[count] = str[count];
+        count++;
     }
     list[count++] = c;
     list[count] = '\0';
@@ -53,7 +48,9 @@ int     get_next_line(char **line)
     
     *line = NULL;
     list[1] = '\0';
-    
+
+    *line = (char*)malloc(1 * sizeof(char));
+    line[0] = '\0';
     while ((count = read(0, list, 1)) > 0)
     {
         if (list[0] == '\n')
