@@ -6,7 +6,7 @@
 /*   By: drina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 13:23:13 by drina             #+#    #+#             */
-/*   Updated: 2020/07/28 16:11:07 by drina            ###   ########.fr       */
+/*   Updated: 2020/07/31 12:28:28 by drina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int     get_next_line(char **line)
     list[1] = '\0';
 
     *line = (char*)malloc(1 * sizeof(char));
-    line[0] = '\0';
+    (*line)[0] = '\0';
     while ((count = read(0, list, 1)) > 0)
     {
         if (list[0] == '\n')
